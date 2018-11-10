@@ -1,42 +1,75 @@
-HW1: Race Condition
-1. ´ÙÀ½ ±â´ÉÀ» ÇÏ´Â ÇÁ·Î±×·¥(sum)À» ¸¸µå½Ã¿À
-µ¥ÀÌÅ¸ È­ÀÏÀÇ ¸¶Áö¸· ¼ýÀÚ¸¦ ÀÐ¾î¼­ 1À» ´õÇØ¼­ ±× È­ÀÏÀÇ ³¡¿¡ Ãß°¡ÇØ¼­ ±â·Ï
-µ¥ÀÌÅ¸ È­ÀÏÀº ÃÊ±â¿¡ 0¸¸ ½áÀÖ´Ù.
-À§ ÇÔ¼ö¸¦ 1000¹ø È£Ãâ
-ÀÌ ÇÁ·Î±×·¥À» ½ÇÇàÇÏ¸é 0 ºÎÅÍ 1000±îÁö 1001°³ÀÇ ¼ýÀÚ°¡ ±â·ÏµÉ °ÍÀÌ´Ù.
-          char *CounterVar = "MyCounter";
+## HW1: Race Condition
 
-int Load(char *fileVar) {
-  // open file(fileVar)
-  // read the last data
-  // close file
-}
+##### 1. ë‹¤ìŒ ê¸°ëŠ¥ì„ í•˜ëŠ” í”„ë¡œê·¸ëž¨(sum)ì„ ë§Œë“œì‹œì˜¤
 
-void Store(char *fileVar, int data) {
-  // open file(fileVar)
-  // append the data
-  // close file
-}
+-   ë°ì´íƒ€ í™”ì¼ì˜ ë§ˆì§€ë§‰ ìˆ«ìžë¥¼ ì½ì–´ì„œ 1ì„ ë”í•´ì„œ ê·¸ í™”ì¼ì˜ ëì— ì¶”ê°€í•´ì„œ ê¸°ë¡
 
-int Add(int i,j) {
-   return i+j
-}
+-   ë°ì´íƒ€ í™”ì¼ì€ ì´ˆê¸°ì— 0ë§Œ ì¨ìžˆë‹¤.
 
-// µ¥ÀÌÅ¸ È­ÀÏÀÇ open, close´Â Load, Store °¢ ÇÔ¼ö ¾È¿¡¼­ ¸Å¹ø ¼öÇàÇÏ°ÔÇÒ °Í
-main() {
-   for ( ... ) { // 1000¹ø?, 10000¹ø?
-      x=Load(fileVar);
-      x=Add(x,1);
-      Store(fileVar, x)
-      }
-}
+-   ìœ„ í•¨ìˆ˜ë¥¼ 1000ë²ˆ í˜¸ì¶œ
 
+-   ì´ í”„ë¡œê·¸ëž¨ì„ ì‹¤í–‰í•˜ë©´ 0 ë¶€í„° 1000ê¹Œì§€ 1001ê°œì˜ ìˆ«ìžê°€ ê¸°ë¡ë  ê²ƒì´ë‹¤.
 
-2. ÀÌ ÇÁ·Î±×·¥À» µÎ°³ ÀÌ»ó µ¿½Ã¿¡ ½ÇÇàÇÏ¿© °á°ú¸¦ »ìÆìº¸½Ã¿À
-1) n°³¸¦ µ¿½Ã¿¡ ½ÇÇàÇßÀ» ¶§ µ¥ÀÌÅ¸ È­ÀÏÀÇ ¸¶Áö¸· ¼ýÀÚ°¡ 1000*nÀÎ°¡?
-2) °á°ú°¡ 1000*nÀÌ ¾Æ´Ï¶ó¸é ±× ¿øÀÎÀº ¹«¾ùÀÎÁö ¼³¸íÇÏ½Ã¿À. (µ¥ÀÌÅ¸ È­ÀÏ Áß ¹®Á¦°¡ ¹ß»ýÇÑ ºÎºÐÀ» 10ÁÙ ÀÌ³»·Î »ðÀÔ)
-3) ¼Ò½ºÄÚµå´Â PDF È­ÀÏ·Î ¸¸µé¾î Ã·ºÎÇÏ½Ã¿À.
+    >char *CounterVar = "MyCounter";
+    
+    > int Load(char *fileVar) {  
+    
+    > // open file(fileVar)
+    > 
+    > // read the last data
+    > 
+    > // close file
+    > 
+    > }
+    > 
+    >   
+    > 
+    > void Store(char *fileVar, int data) {
+    > 
+    > // open file(fileVar)
+    > 
+    > // append the data
+    > 
+    > // close file
+    > 
+    > }
+    > 
+    >   
+    > 
+    > int Add(int i,j) {
+    > 
+    > return i+j
+    > 
+    > }
+    > 
+    > >   
+    > 
+    > // ë°ì´íƒ€ í™”ì¼ì˜ open, closeëŠ” Load, Store ê° í•¨ìˆ˜ ì•ˆì—ì„œ ë§¤ë²ˆ ìˆ˜í–‰í•˜ê²Œí•  ê²ƒ  
+    > 
+    > main() {
+    > 
+    > for ( ... ) { // 1000ë²ˆ?, 10000ë²ˆ?
+    > 
+    > x=Load(fileVar);
+    > 
+    > x=Add(x,1);
+    > 
+    > Store(fileVar, x)
+    > 
+    > }
+    > 
+    > }
 
-¸®´ª½º ½©¿¡¼­ ÇÁ·Î±×·¥À» µÎ°³ ÀÌ»ó µ¿½Ã¿¡ ½ÇÇàÇÏ´Â ¹æ¹ý
-$ ./sum & ./sum & ./sum        // 2°³´Â ¹é±×¶ó¿îµå¿¡¼­ ³ª¸ÓÁö ÇÏ³ª´Â Æ÷±×¶ó¿îµå¿¡¼­ ½ÇÇàµÊ
-// ÀÌ °æ¿ì È­ÀÏ¿¡ 0À» Æ÷ÇÔÇØ¼­ 3001°³ÀÇ ¼ýÀÚ°¡ ±â·ÏµÇ¾î¾ß Á¤»óÀÓ
+  
+
+##### 2. ì´ í”„ë¡œê·¸ëž¨ì„ ë‘ê°œ ì´ìƒ ë™ì‹œì— ì‹¤í–‰í•˜ì—¬ ê²°ê³¼ë¥¼ ì‚´íŽ´ë³´ì‹œì˜¤
+
+##### 1) nê°œë¥¼ ë™ì‹œì— ì‹¤í–‰í–ˆì„ ë•Œ ë°ì´íƒ€ í™”ì¼ì˜ ë§ˆì§€ë§‰ ìˆ«ìžê°€ 1000*nì¸ê°€?
+
+##### 2) ê²°ê³¼ê°€ 1000*nì´ ì•„ë‹ˆë¼ë©´ ê·¸ ì›ì¸ì€ ë¬´ì—‡ì¸ì§€ ì„¤ëª…í•˜ì‹œì˜¤. (ë°ì´íƒ€ í™”ì¼ ì¤‘ ë¬¸ì œê°€ ë°œìƒí•œ ë¶€ë¶„ì„ 10ì¤„ ì´ë‚´ë¡œ ì‚½ìž…)
+
+##### 3) ì†ŒìŠ¤ì½”ë“œëŠ” PDF í™”ì¼ë¡œ ë§Œë“¤ì–´ ì²¨ë¶€í•˜ì‹œì˜¤.
+
+> ë¦¬ëˆ…ìŠ¤ ì‰˜ì—ì„œ í”„ë¡œê·¸ëž¨ì„ ë‘ê°œ ì´ìƒ ë™ì‹œì— ì‹¤í–‰í•˜ëŠ” ë°©ë²•   $ ./sum & ./sum & ./sum        //
+> 2ê°œëŠ” ë°±ê·¸ë¼ìš´ë“œì—ì„œ ë‚˜ë¨¸ì§€ í•˜ë‚˜ëŠ” í¬ê·¸ë¼ìš´ë“œì—ì„œ ì‹¤í–‰ë¨   // ì´ ê²½ìš° í™”ì¼ì— 0ì„ í¬í•¨í•´ì„œ 3001ê°œì˜ ìˆ«ìžê°€ ê¸°ë¡ë˜ì–´ì•¼
+> ì •ìƒìž„
