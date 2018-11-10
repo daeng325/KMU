@@ -1,12 +1,12 @@
 
-# ½ÇÇà È­¸é 
+# ì‹¤í–‰ í™”ë©´ 
+ 
+ ![enter image description here](https://raw.githubusercontent.com/daeng325/KMU/master/Opersting_System/Reader&Writer_Problem/os_hw2.png)
+ 
+# ì‹¤í–‰ ë° ë¶„ì„ ì„œìˆ  
  
  
- 
-# ½ÇÇà ¹× ºÐ¼® ¼­¼ú 
- 
- 
-### AW,AR,WR,WW ÆÄÀÏ °á°ú 
+### AW,AR,WR,WW íŒŒì¼ ê²°ê³¼ 
 
 > AR  
 > 0  
@@ -47,15 +47,15 @@
 > 13-33-39 2937 0
 
  
-### ÃÑ ½ÇÇà ½Ã°£ 
+### ì´ ì‹¤í–‰ ì‹œê°„ 
 -  13:33:30 ~ 13:33:47 
-- ÃÑ ½ÇÇà ½Ã°£Àº 17ÃÊÀÌ´Ù. 
+- ì´ ì‹¤í–‰ ì‹œê°„ì€ 17ì´ˆì´ë‹¤. 
  
-### °¡Àå ´Ê°Ô ³¡³ª´Â ÇÁ·Î¼¼½º id 
+### ê°€ìž¥ ëŠ¦ê²Œ ëë‚˜ëŠ” í”„ë¡œì„¸ìŠ¤ id 
 -  2935 
 - ./add1 reader 4 5 
  
  
-### ´Ù½Ã °íÄ£ ºÎºÐ 
--  Condition VariableµéÀÇ semkey¸¦ lock°ú °°Àº key·Î Áà¼­ Á¦´ë·Î µÈ °á°ú°¡ ³ª¿ÀÁö ¾Ê¾Ò ´Ù. ÇÑ °÷¿¡¼­ lockÀ» °É°í ±â´Ù¸®°í ´õÇÏ°í »©°í ÇÏ´Â °É ´Ù Çß¾î¼­ ±×·¨´ø °Í °°´Ù. ±× ·¡¼­ semkeyÀÇ °ªÀ» °¢°¢ ´Þ¸® Áá´õ´Ï Á¦´ë·Î ½ÇÇàÀÌ µÆ´Ù. 
-- Main()ÇÔ¼ö¿¡ ÀÖ´ø print¹®µé°ú Acquire(),Release()ÇÔ¼ö¸¦ Reader(), Writer()ÇÔ¼ö¿¡ ³Ö¾ú´Ù. ¿¹Àü¿¡ Àß ¾È µÆ´ø lockÀÌ Á¦´ë·Î ±â´ÉÇß´Ù. 
+### ë‹¤ì‹œ ê³ ì¹œ ë¶€ë¶„ 
+-  Condition Variableë“¤ì˜ semkeyë¥¼ lockê³¼ ê°™ì€ keyë¡œ ì¤˜ì„œ ì œëŒ€ë¡œ ëœ ê²°ê³¼ê°€ ë‚˜ì˜¤ì§€ ì•Šì•˜ ë‹¤. í•œ ê³³ì—ì„œ lockì„ ê±¸ê³  ê¸°ë‹¤ë¦¬ê³  ë”í•˜ê³  ë¹¼ê³  í•˜ëŠ” ê±¸ ë‹¤ í–ˆì–´ì„œ ê·¸ëž¬ë˜ ê²ƒ ê°™ë‹¤. ê·¸ ëž˜ì„œ semkeyì˜ ê°’ì„ ê°ê° ë‹¬ë¦¬ ì¤¬ë”ë‹ˆ ì œëŒ€ë¡œ ì‹¤í–‰ì´ ëë‹¤. 
+- Main()í•¨ìˆ˜ì— ìžˆë˜ printë¬¸ë“¤ê³¼ Acquire(),Release()í•¨ìˆ˜ë¥¼ Reader(), Writer()í•¨ìˆ˜ì— ë„£ì—ˆë‹¤. ì˜ˆì „ì— ìž˜ ì•ˆ ëë˜ lockì´ ì œëŒ€ë¡œ ê¸°ëŠ¥í–ˆë‹¤. 
