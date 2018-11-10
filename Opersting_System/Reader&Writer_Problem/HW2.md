@@ -1,7 +1,7 @@
 
 # 실행 화면 
  
- https://raw.githubusercontent.com/daeng325/KMU/master/Opersting_System/Reader%26Writer_Problem/os_hw2.png
+ ![enter image description here](https://raw.githubusercontent.com/daeng325/KMU/master/Opersting_System/Reader&Writer_Problem/os_hw2.png)
  
 # 실행 및 분석 서술 
  
