@@ -1,0 +1,3 @@
+REVIEWBOARD_URL='http://reviews.cs.kookmin.ac.kr/'
+REPOSITORY = 'dieting'
+STAMP_WHEN_POSTING = True

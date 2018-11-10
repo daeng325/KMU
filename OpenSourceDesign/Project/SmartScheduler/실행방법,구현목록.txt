@@ -1,0 +1,25 @@
+- 구현한 것 : 
+	
+	목록형.달력형구현, 
+	목록형.달력형 메서드(입력값을 받아서 추가(테이블+db+캘린더)).삭제(테이블+db).수정(테이블+db).업데이트(테이블+db)) db와 연동(읽어오기, 추가, 삭제, 업데이트), 
+	sort, 
+	부트스트랩으로 UI, modal과 modal에서 enter를 눌렀을 때 저장이 되도록,  
+	달력형.목록형 스위칭, 
+	select drag. 날짜에 따른 목록형 업데이트, 
+	Apache.PHPMyAdmin,
+	삭제했을 때 캘린더에서의 삭제, 
+	status에 따른 캘린더 이동(*.-변동X, V.X캘린더 표시X, ->다음날짜에 표시)
+
+- 실행 방법 : 
+
+	Apache, PHPMyAdmin의 서버에서 실행시키는 디렉토리 안에 master branch 안의 demo/ .reviewboardrc README.md 를 제외한 나머지 파일을 넣는다.
+	모든 php파일의 $con = mysqli_connect('localhost','root','wazs8523','dieting'); 이 부분의 wazs8523을 실행하는 PC의 mysql 비밀번호를 적는다.
+	PHPMyAdmin을 접속하거나 bash쉘,cmd를 이용하여서 dieting db를 만들고 schedule 테이블에 id(인덱스 : prymary, auto_increment, int),state(int),upper(int),lower(int),schedule(text),date(int)속성을 주어서 만든다.
+	로컬호스트의 주소(127.0.0.1)으로 접속을 한다.(index.html파일을 서버가 아닌 개인으로 실행시키면 문제 발생)
+	크롬 환경에서 실행
+
+
+현재 찾은 버그 : 할일의 입력으로 \test가 들어왔을 때.익스플로러에서 많은 버그 발생.
+구현 못 한것 : 추가적으로 말씀하셨던 계정간 빈 시간 비교.
+
+버그 수정 : 할일에 빈 값이 들어가면 오류 발생. 등록순이 역순으로 초기화 오류.

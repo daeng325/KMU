@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf8">
+
+    <title>Smart Scheduler</title>
+
+    <style>
+        /*스타일에 대한 선언문*/
+
+        /*전체 스타일*/
+        body {
+            background: url('./demo/free-christmas-pine-needle-vector.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+
+        /*상단 글씨*/
+        .jumbotron {
+            margin-top: 100px;
+            height: 230px;
+            text-shadow: #444 0 1px 1px;
+            background: transparent !important;
+            text-align: center;
+            font-family: 'Bevan', cursive;
+        }
+
+        /*full calendar*/
+        #f_calendar {
+            font-family: "Lucida Grande", Helvetica, Arial, Verdana,sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fc-day-top.fc-sat {
+            color: #0000FF;
+        }
+
+        .fc-day-top.fc-sun {
+            color: #FF0000;
+        }
+
+        /*라디오버튼*/
+        .btn-group {
+            font-family: 'Jeju Gothic', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        /*버튼 모양*/
+        .btn_style {
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 20px;
+        }
+
+        .current_style{
+            font-size: 25pt; 
+            color: black; 
+            font-family: 'Ranga', cursive; 
+            text-decoration: none !important;
+        }
+
+        .ui-widget { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: .9em; }
+
+        /*표*/
+        .table {
+            font-family: 'Jeju Gothic', sans-serif;
+            vertical-align: middle;
+        }
+
+        /*border 버튼*/
+        .btn_style_border {
+            padding: 5px;
+            border: none;
+            outline: none;
+            background: none;
+            color: black;
+            border: 2px solid #000000 !important;
+            font-family: 'Jeju Gothic', sans-serif;
+        }
+
+            .btn_style_border:hover {
+                opacity: 0.6;
+            }
+
+        /*삭제버튼*/
+        .btn_style_delete {
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        /*탭*/
+        .tabStyle {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+        }
+
+        /*date picker*/
+        .input-date {
+            width: 130px;
+            height: 33px;
+            background-color: transparent !important;
+            color: black;
+            border: 2px solid #000000 !important;
+            outline: none;
+            text-align: center;
+        }
+
+        /*modal이 켜질 때 scroll 자동 고정 및 자동으로 발생하는 padding-right 삭제*/
+        .modal-open {
+            overflow: auto !important;
+            padding-right: 0px !important;
+        }
+
+        /*반응형 테이블*/
+        .table-responsive {
+            margin-bottom: 0px !important;
+            border: none !important;
+        }
+    </style>
+    <!--부트스트랩을 사용하기 위한 추가 부분입니다.-->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!--구글 폰트-->
+    <link href="https://fonts.googleapis.com/css?family=Bevan|Ranga" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" />
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!--fullcalendar, jquery에 대한 추가 부분 입니다.-->
+    <link href="./fullcalendar-3.0.1/fullcalendar.css" rel="stylesheet" />
+    <link href='./fullcalendar-3.0.1//fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href="./fullcalendar-3.0.1/lib/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="./fullcalendar-3.0.1/lib/moment.min.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
+    <script src="./fullcalendar-3.0.1/lib/jquery-ui.min.js" charset="utf-8"></script>
+    <script src="./fullcalendar-3.0.1/fullcalendar.js" charset="utf-8"></script>
+    <script src="./fullcalendar-3.0.1/locale-all.js" charset="utf-8"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="./lib/dateChange.js" charset="utf-8"></script>
+    <script src="./lib/setting.js" charset="utf-8"></script>
+    <script src="./lib/calendar.js" charset="utf-8"></script>
+    <script src="./lib/list.js" charset="utf-8"></script>
+    <script src="./lib/selectDrag.js" charset="utf-8"></script>
+</head>
+<body>
+
+    <!--상단의 글씨-->
+    <header class="jumbotron" style="">
+        <h1 style="color: brown;">Smart Scheduler</h1>
+        <p class="lead" style="color: green;"> by. dieting</p>
+    </header>
+
+    <!--전체 내용-->
+    <section class="container">
+        <div class="tabStyle">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <!--list 위의 날짜와 날짜 이동 버튼들-->
+                    <header class="text-center" id="date_info" style="padding: 30px;">
+                        <br />
+                        <button class="btn_style" id="move_yesterday" onclick="move_yesterday(event)"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                        <a class="current_style" id="current_date"></a>
+                        <button class="btn_style" id="move_tommorrow" onclick="move_tomorrow(event)" style=""><span class="glyphicon glyphicon-chevron-right"></span></button>
+                        <br />
+                        <input type="text" id="date_moving" class="input-date" />
+                        <button onclick="move_today(event)" class="btn_style_border">오늘</button>
+                        <button onclick="move_date(event)" class="btn_style_border">이동</button>
+                    </header>
+
+                    <!--어떤 탭을 만들건지 선언부-->
+                    <ul class="nav nav-tabs ma" id="myTab">
+                        <li class="active"><a data-toggle="tab" href="#home" style="color: black;">List</a></li>
+                        <li><a data-toggle="tab" href="#menu" style="color: black;">Calender</a></li>
+                    </ul>
+
+                    <!--탭 부분-->
+                    <main class="tab-content" style="background: white; padding: 20px;">
+                        <!--list 탭-->
+                        <section id="home" class="tab-pane fade in active">
+                            <br />
+                            <!--정렬 버튼 생성-->
+                            <nav class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="options" id="signup_rank" autocomplete="off" onchange="sort_btn_clicked()" checked>등록 순위
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options" id="upper_rand" autocomplete="off" onchange="sort_btn_clicked()">상위 순위
+                                </label>
+                            </nav>
+
+                            <!--일정 표와 일정 추가-->
+                            <article class="table-responsive">
+                                <fieldset id="text_table_div" onmouseup="select_up(event)"></fieldset>
+                                <button class="btn_style text-center" data-toggle="modal" data-target="#addModal" style="display: block; margin: 0 auto;"><span class="glyphicon glyphicon-plus"></span></button>
+                            </article>
+                        </section>
+
+                        <!--calendar 탭-->
+                        <section id="menu" class="tab-pane fade">
+                            <!--calendar가 들어갈 div태그-->
+                            <article id="f_calendar"></article>
+                        </section>
+                    </main>
+                </div>
+
+                <!--list.js의 togle_hide를 이용해서 calendar와 list를 바꿔준다.-->
+                <br /><br />
+                <!--한줄에 대해서 추가한다. list.add_tr을 이용, db의 insert부분을 완성하면 입력을 받아서 tr을 만들예정-->
+                <!--div에 셀렉트가 들어갈 예정이기 때문에 select의 길이에 맞게 div 높이를 늘려준다.-->
+            </div>
+        </div>
+
+        <!--하단부-->
+        <footer class="text-center">
+            <br />
+            <p>
+                With <address class="glyphicon glyphicon-heart"></address> from @tankattack & @deang & @jeunna & @dohee & @yangjea
+                | dieting 2016 at open source project class
+            </p>
+        </footer>
+    </section>
+
+    <!--일정 추가 버튼을 누를 시에 나오는 madal-->
+    <aside class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" onmouseup="select_up(event)">
+                <header class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addModalLabel">일정 추가</h4>
+                </header>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <section class="col-md-offset-2 col-md-8">
+                            <label for="in_date">날 짜</label>
+                            <input type="text" class="form-control" id="in_date">
+                        </section>
+                    </div>
+
+                    <div class="row">
+                        <section class="col-md-offset-2 col-md-4">
+                            <label for="in_state">상 태</label>
+                            <select class="form-control" id="in_state" onmousedown="select_down(this)">
+                                <option value="">Choose</option>
+                                <option value="0" selected>*</option>
+                                <option value="1" id="oin_state">V</option>
+                                <option value="2">~</option>
+                                <option value="3">-></option>
+                                <option value="4">X</option>
+                            </select>
+                        </section>
+                    </div>
+
+                    <div class="row">
+                        <section class="col-md-offset-2 col-md-4">
+                            <label for="in_upper">상 위</label>
+                            <select class="form-control" id="in_upper" onmousedown="select_down(this)">
+                                <option value="">Choose</option>
+                                <option value="0" selected>A</option>
+                                <option value="1" id="oin_upper">B</option>
+                                <option value="2">C</option>
+                                <option value="3">D</option>
+                            </select>
+
+                        </section>
+
+                        <section class="col-md-4">
+                            <label for="in_lower">하 위</label>
+                            <select class="form-control" id="in_lower" onmousedown="select_down(this)">
+                                <option value="">Choose</option>
+                                <option value="0" selected>1</option>
+                                <option value="1" id="oin_lower">2</option>
+                                <option value="2">3</option>
+                                <option value="3">4</option>
+                            </select>
+                        </section>
+                    </div>
+
+                    <div class="row">
+                        <section class="col-md-offset-2 col-md-8">
+                            <label for="in_schedule">할 일</label>
+                            <input type="text" class="form-control" id="in_schedule">
+                        </section>
+                    </div>
+
+                </div>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">취 소</button>
+                    <button type="button" id="save" class="btn btn-primary" onclick="add_db()" data-dismiss="modal">저 장</button>
+                </footer>
+            </div>
+        </div>
+    </aside>
+</body>
+</html>
