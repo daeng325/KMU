@@ -2,19 +2,23 @@
 
 # Deadlock
 
+![
+](https://raw.githubusercontent.com/daeng325/KMU/master/Opersting_System/Deadlock-Dining_Philosopher/images/os-hw3-deadlock.png)
 
-DeadlockÀ» ¸¸µé·Á¸é 4°¡Áö Á¶°ÇÀÌ ÇÊ¿äÇÏ´Ù. Mutual exclusiveÇØ¾ß ÇÏ°í, hold and wait°¡ ÀÖ¾î¾ß ÇÏ¸ç, non-preemption (»¯°Å³ª »©¾Ñ±âÁö ¾Ê´Â´Ù)ÀÌ°í, cycleÀÌ ÀÖ¾î¾ß ÇÑ´Ù. Mutual exclusiveÇØ¾ßÇÑ´Ù´Â Á¶°ÇÀº lockÀ¸·Î ÇØ°áÇß°í, hold & waitÁ¶°ÇÀº 3888À» A, 3889¸¦ B, 3890À» C ÇÁ·Î¼¼¼­¶ó°í ÇÑ´Ù¸é, ½ÇÇà°á°ú·Î ÀÎÇØ B°¡ R2¸¦ Àâ°í R3¸¦ ±â´Ù¸®°í, C°¡ R3¸¦ Àâ°í R1À» ±â´Ù¸®°í, A°¡ R1À» Àâ°í R2¸¦ ±â´Ù¸®°í ÀÖ´Â °É ¾Ë ¼ö ÀÖ´Ù. ±×¸®°í cycleÀÌ ÀÖ°í, non-preemptionÀÌ´Ù. ±×·¯¹Ç·Î deadlockÀÌ ¹ß»ýÇÑ´Ù.
+Deadlockì„ ë§Œë“¤ë ¤ë©´ 4ê°€ì§€ ì¡°ê±´ì´ í•„ìš”í•˜ë‹¤. Mutual exclusiveí•´ì•¼ í•˜ê³ , hold and waitê°€ ìžˆì–´ì•¼ í•˜ë©°, non-preemption (ëºê±°ë‚˜ ë¹¼ì•—ê¸°ì§€ ì•ŠëŠ”ë‹¤)ì´ê³ , cycleì´ ìžˆì–´ì•¼ í•œë‹¤. Mutual exclusiveí•´ì•¼í•œë‹¤ëŠ” ì¡°ê±´ì€ lockìœ¼ë¡œ í•´ê²°í–ˆê³ , hold & waitì¡°ê±´ì€ 3888ì„ A, 3889ë¥¼ B, 3890ì„ C í”„ë¡œì„¸ì„œë¼ê³  í•œë‹¤ë©´, ì‹¤í–‰ê²°ê³¼ë¡œ ì¸í•´ Bê°€ R2ë¥¼ ìž¡ê³  R3ë¥¼ ê¸°ë‹¤ë¦¬ê³ , Cê°€ R3ë¥¼ ìž¡ê³  R1ì„ ê¸°ë‹¤ë¦¬ê³ , Aê°€ R1ì„ ìž¡ê³  R2ë¥¼ ê¸°ë‹¤ë¦¬ê³  ìžˆëŠ” ê±¸ ì•Œ ìˆ˜ ìžˆë‹¤. ê·¸ë¦¬ê³  cycleì´ ìžˆê³ , non-preemptionì´ë‹¤. ê·¸ëŸ¬ë¯€ë¡œ deadlockì´ ë°œìƒí•œë‹¤.
 
 # Prevention
 
+![enter image description here](https://raw.githubusercontent.com/daeng325/KMU/master/Opersting_System/Deadlock-Dining_Philosopher/images/os-hw3-prevention.png)
 
-
-DeadlockÀ» ¸·´Â ¹æ¹ý Áß circular wait (cycle)À» ±ú´Â ¹æ¹ýÀÌ ÀÖ´Âµ¥, ±× ¹æ¹ýÀº ¸ðµç ÀÚ¿ø¿¡ globalÇÑ ¼ø¼­¸¦ ¸Å±â´Â ¹æ¹ýÀÌ´Ù. º¸ÅëÀº ³·Àº ¹øÈ£¸¦ ¸ÕÀú Àâ°í ³ôÀº ¹øÈ£¸¦ ³ªÁß¿¡ Àâ´Â´Ù¸é, ¸¶Áö¸·¿¡¸¸ ³ôÀº¹øÈ£->³·Àº¹øÈ£ ¼øÀ¸·Î Á£°¡¶ôÀ» Àâ°Ô ÇÏ¸é cycleÀ» ±ý ¼ö ÀÖÀ» °ÍÀÌ´Ù. ±×·±µ¥ À§¿¡ Ç¥½ÃµÈ °ÍÃ³·³ process 5576ÀÌ R2->R3¸¦ °¡Áö°í ½Ä»ç¸¦ ¸¶Ä£ ÈÄ¿¡ ³»·Á³õÀ¸·Á°í ÇÏ´Â ¿ÍÁß¿¡ process 5575°¡ ³»·Á³õ±âµµ Àü¿¡ R2¸¦ °¡Á®°¡´Â °ÍÀ» º¼ ¼ö ÀÖ´Ù. ±× ºÎºÐÀº ÇØ°áÇÏÁö ¸øÇÑ ºÎºÐÀÌ´Ù.
+Deadlockì„ ë§‰ëŠ” ë°©ë²• ì¤‘ circular wait (cycle)ì„ ê¹¨ëŠ” ë°©ë²•ì´ ìžˆëŠ”ë°, ê·¸ ë°©ë²•ì€ ëª¨ë“  ìžì›ì— globalí•œ ìˆœì„œë¥¼ ë§¤ê¸°ëŠ” ë°©ë²•ì´ë‹¤. ë³´í†µì€ ë‚®ì€ ë²ˆí˜¸ë¥¼ ë¨¼ì € ìž¡ê³  ë†’ì€ ë²ˆí˜¸ë¥¼ ë‚˜ì¤‘ì— ìž¡ëŠ”ë‹¤ë©´, ë§ˆì§€ë§‰ì—ë§Œ ë†’ì€ë²ˆí˜¸->ë‚®ì€ë²ˆí˜¸ ìˆœìœ¼ë¡œ ì “ê°€ë½ì„ ìž¡ê²Œ í•˜ë©´ cycleì„ ê¹° ìˆ˜ ìžˆì„ ê²ƒì´ë‹¤. ê·¸ëŸ°ë° ìœ„ì— í‘œì‹œëœ ê²ƒì²˜ëŸ¼ process 5576ì´ R2->R3ë¥¼ ê°€ì§€ê³  ì‹ì‚¬ë¥¼ ë§ˆì¹œ í›„ì— ë‚´ë ¤ë†“ìœ¼ë ¤ê³  í•˜ëŠ” ì™€ì¤‘ì— process 5575ê°€ ë‚´ë ¤ë†“ê¸°ë„ ì „ì— R2ë¥¼ ê°€ì ¸ê°€ëŠ” ê²ƒì„ ë³¼ ìˆ˜ ìžˆë‹¤. ê·¸ ë¶€ë¶„ì€ í•´ê²°í•˜ì§€ ëª»í•œ ë¶€ë¶„ì´ë‹¤.
 
 # Avoiding
 
+![
+](https://raw.githubusercontent.com/daeng325/KMU/master/Opersting_System/Deadlock-Dining_Philosopher/images/os-hw3-avoiding.png)
 
 
-DeadlockÀ» ÇÇÇÏ´Â ¹æ¹ý Áß Banker¡¯s algorithm ¹æ¹ýÀÌ ÀÖ´Ù. °£´ÜÈ÷ ¸»ÇÏÀÚ¸é safeÇÑ »óÅÂÀÌ¸é ÀÚ¿øÀ» ÁÖ´Â °³³äÀÌ´Ù. ÀÌ¹ø °úÁ¦¿¡¼­ÀÇ safeÇÑ »óÅÂ´Â 2°¡Áö °æ¿ì°¡ ÀÖ´Ù. Ã¹¹øÂ°´Â Á£°¡¶ôÀÌ ¸¶Áö¸· Á£°¡¶ôÀÌ ¾Æ´Ò ¶§ÀÌ´Ù. µÎ¹øÂ°´Â Á£°¡¶ôÀÌ ¸¸¾à 1°³°¡ ³²¾ÒÀ¸¸é, ´©±º°¡¿¡°Ô ÁáÀ» ¶§ Á£°¡¶ôÀÌ 2°³°¡ µÇ´Â »óÅÂÀÌ´Ù. ±× 2°¡Áö ¹æÇâÀ¸·Î °¡¸é safeÇÑ »óÅÂ¸¦ À¯ÁöÇÒ ¼ö ÀÖÀ» °ÍÀÌ´Ù.
+Deadlockì„ í”¼í•˜ëŠ” ë°©ë²• ì¤‘ Bankerâ€™s algorithm ë°©ë²•ì´ ìžˆë‹¤. ê°„ë‹¨ížˆ ë§í•˜ìžë©´ safeí•œ ìƒíƒœì´ë©´ ìžì›ì„ ì£¼ëŠ” ê°œë…ì´ë‹¤. ì´ë²ˆ ê³¼ì œì—ì„œì˜ safeí•œ ìƒíƒœëŠ” 2ê°€ì§€ ê²½ìš°ê°€ ìžˆë‹¤. ì²«ë²ˆì§¸ëŠ” ì “ê°€ë½ì´ ë§ˆì§€ë§‰ ì “ê°€ë½ì´ ì•„ë‹ ë•Œì´ë‹¤. ë‘ë²ˆì§¸ëŠ” ì “ê°€ë½ì´ ë§Œì•½ 1ê°œê°€ ë‚¨ì•˜ìœ¼ë©´, ëˆ„êµ°ê°€ì—ê²Œ ì¤¬ì„ ë•Œ ì “ê°€ë½ì´ 2ê°œê°€ ë˜ëŠ” ìƒíƒœì´ë‹¤. ê·¸ 2ê°€ì§€ ë°©í–¥ìœ¼ë¡œ ê°€ë©´ safeí•œ ìƒíƒœë¥¼ ìœ ì§€í•  ìˆ˜ ìžˆì„ ê²ƒì´ë‹¤.
 
-±×¸®°í ÁÖÀÇÇÒ Á¡Àº avoidingÀ» ÇÏ·Á¸é lockÀ» ÇÏ³ª·Î ÅëÀÏÇØ¼­ ¸¸µé¾î¾ß ÇÑ´Ù´Â °ÍÀÌ¾ú´Ù. Take_R1()ÇÔ¼ö¸¦ ÇÒ ¶§µµ R2³ª R3»óÅÂ¸¦ È®ÀÎÇØ¾ß µÇ±â ¶§¹®¿¡ °æÀïÁ¶°ÇÀÌ ¹ß»ýÇÒ °ÍÀÌ´Ù. ±×¸®°í A,B,C Ã¶ÇÐÀÚ°¡ ¸î °³ Á£°¡¶ôÀ» °¡Áö°í ÀÖ´ÂÁö È®ÀÎÇÒ ¶§µµ °æÀïÁ¶°ÇÀÌ ¹ß»ýÇÒ °ÍÀÌ´Ù. ±×·¡¼­ 3°³ÀÇ takeÇÔ¼ö, 3°³ÀÇ putÇÔ¼ö ¸ðµÎ ÇÑ °³ÀÇ lockÀ¸·Î µ¿±âÈ­ÇØ¾ß ÇÑ´Ù.
+ê·¸ë¦¬ê³  ì£¼ì˜í•  ì ì€ avoidingì„ í•˜ë ¤ë©´ lockì„ í•˜ë‚˜ë¡œ í†µì¼í•´ì„œ ë§Œë“¤ì–´ì•¼ í•œë‹¤ëŠ” ê²ƒì´ì—ˆë‹¤. Take_R1()í•¨ìˆ˜ë¥¼ í•  ë•Œë„ R2ë‚˜ R3ìƒíƒœë¥¼ í™•ì¸í•´ì•¼ ë˜ê¸° ë•Œë¬¸ì— ê²½ìŸì¡°ê±´ì´ ë°œìƒí•  ê²ƒì´ë‹¤. ê·¸ë¦¬ê³  A,B,C ì² í•™ìžê°€ ëª‡ ê°œ ì “ê°€ë½ì„ ê°€ì§€ê³  ìžˆëŠ”ì§€ í™•ì¸í•  ë•Œë„ ê²½ìŸì¡°ê±´ì´ ë°œìƒí•  ê²ƒì´ë‹¤. ê·¸ëž˜ì„œ 3ê°œì˜ takeí•¨ìˆ˜, 3ê°œì˜ putí•¨ìˆ˜ ëª¨ë‘ í•œ ê°œì˜ lockìœ¼ë¡œ ë™ê¸°í™”í•´ì•¼ í•œë‹¤.
