@@ -10,6 +10,7 @@ int gcd(int num1, int num2) {
 	}
 }
 
+
 void function(int a, int b) {
 
 	int mod = b / a;

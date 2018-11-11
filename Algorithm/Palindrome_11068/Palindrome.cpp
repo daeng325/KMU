@@ -26,7 +26,6 @@ int main() {
 	int numTestcase, num;
 	cin >> numTestcase;
 	
-
 	for (int i = 0; i < numTestcase; i++) {
 		cin >> num;
 		int isPalindrome = 0;

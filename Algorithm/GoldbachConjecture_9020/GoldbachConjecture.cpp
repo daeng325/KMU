@@ -48,7 +48,6 @@ int main() {
 	vector<int> prime_num;
 	setVector(prime_num);
 	
-
 	for (int i = 0; i < numTestCase; i++) {
 		int input_num;
 		cin >> input_num;

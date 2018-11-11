@@ -34,7 +34,6 @@ int main() {
 		else {
 			cout << sheep_num << " " << goat_num << endl;
 		}
-
 	}
 	return 0;
 }
