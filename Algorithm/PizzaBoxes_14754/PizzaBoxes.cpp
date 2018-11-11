@@ -2,7 +2,6 @@
 using namespace std;
 
 void function1(int **arr, int **check, int n, int m) {
-	
 	for (int i = 0; i < n; i++) {
 		int idx1, idx2, max = -1;
 		for (int j = 0; j < m; j++) {
