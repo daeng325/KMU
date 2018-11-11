@@ -1,11 +1,10 @@
 #include <iostream>
 #include <cmath>
 
-
 int result;
 
 int Turret(int x1, int y1, int r1, int x2, int y2, int r2) {
-	double length;//µÎ Á¡ÀÇ °Å¸®
+	double length;//ÂµÃ ÃÂ¡Ã€Ã‡ Â°Ã…Â¸Â®
 
 	length = sqrt(pow(x1 - y1,2.0) + pow(x2 - y2,2.0));
 
