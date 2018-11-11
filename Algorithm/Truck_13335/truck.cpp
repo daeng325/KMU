@@ -28,7 +28,6 @@ int main() {
 	int T, n, w, L;
 	cin >> T;
 
-
 	for (int i = 0; i < T; i++) {
 		cin >> n >> w >> L;
 		queue <int> Q;
