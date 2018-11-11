@@ -58,5 +58,6 @@ int main() {
 
 		get_result(W, S, A, num_team);
 	}
+	
 	return 0;
 }
