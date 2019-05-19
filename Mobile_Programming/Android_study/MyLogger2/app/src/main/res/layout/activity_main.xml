@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="현재 어떤 활동을 하고 있나요?"
+            android:textSize="15dp"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbt01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cafe"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rbt02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Exercise"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rbt03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Study"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rbt05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rest"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rbt04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eat"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rbt06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Etc"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/button01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button02"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="저장 위치 확인"/>
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:id="@+id/resetBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="초기화"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/textLatitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/textLongitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/textActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>
